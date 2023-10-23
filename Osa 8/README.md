@@ -20,9 +20,6 @@ henkilo3 = {"nimi": "Veijo", "tulos1": 3, "tulos2": 1, "tulos3": 1}
 
 print(pienin_keskiarvo(henkilo1, henkilo2, henkilo3))
 ```
-```
-{'nimi': 'Veijo', 'tulos1': 3, 'tulos2': 1, 'tulos3': 1}
-```
 ## Rivien summat
 ## Vuodet listaan
 ## Kauppalista
