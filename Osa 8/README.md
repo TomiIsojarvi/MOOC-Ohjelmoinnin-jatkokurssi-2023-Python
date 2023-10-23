@@ -23,6 +23,8 @@ print(pienin_keskiarvo(henkilo1, henkilo2, henkilo3))
 ```
 {'nimi': 'Veijo', 'tulos1': 3, 'tulos2': 1, 'tulos3': 1}
 ```
+
+[Vastaus](osa08-01_pienin_keskiarvo/src/pienin_keskiarvo.py)
 ## Rivien summat
 Listan alkioiden arvot ovat viittauksia olioihin. Tämä pätee myös silloin, kun mallinnetaan matriisia: jokainen päälistan alkion arvo on viittaus toiseen listaan (jonka alkiot taas ovat viittauksia arvoihin).
 
@@ -39,6 +41,8 @@ print(matriisi)
 ```
 [[1, 2, 3], [3, 4, 7]]
 ```
+
+[Vastaus](osa01-01_hymio/src)
 ## Vuodet listaan
 Tee funktio vuodet_listaan(paivamaarat: list), joka saa parametrikseen listan, joka sisältää date-tyyppisiä olioita. Funktio palauttaa uuden listan, jossa on päivämäärien vuodet suuruusjärjestyksessä pienimmästä suurimpaan.
 
@@ -54,6 +58,8 @@ print(vuodet)
 ```
 [1993, 2006, 2019]
 ```
+
+[Vastaus](osa01-01_hymio/src)
 ## Kauppalista
 Tehtäväpohjassa on määritelty valmiiksi Kauppalista-luokka, jolla voidaan mallintaa yhtä kauppalistaa.
 
@@ -101,6 +107,8 @@ if __name__ == "__main__":
 ```
 16
 ```
+
+[Vastaus](osa01-01_hymio/src)
 ## Kirja
 Tee luokka Kirja, jolla on attribuutteina muuttujat nimi, kirjoittaja, genre ja kirjoitusvuosi sekä konstruktori, joka alustaa muuttujat.
 
@@ -116,6 +124,8 @@ print(f"Kirjan {everest.nimi} genre on {everest.genre}")
 Luciano Ramalho: Fluent Python (2015)
 Kirjan Huipulta huipulle genre on elämänkerta
 ```
+
+[Vastaus](osa01-01_hymio/src)
 ## Kirjoita luokat
 Kirjoita alla pyydetyt luokat. Jokaisen luokan alle on kuvattu attribuuttien nimet ja tyypit.
 
@@ -133,6 +143,8 @@ Kirjoita jokaiselle luokalle myös konstruktori, jossa attribuutit annetaan siin
 - attribuutti pituus (desimaaliluku)
 - attribuutti maksiminopeus (kokonaisluku)
 - attribuutti kaksisuuntainen (totuusarvo)
+
+[Vastaus](osa01-01_hymio/src)
 ## Muodosta lemmikki
 Määrittele luokka Lemmikki. Luokalla on konstruktori, jossa annetaan arvot attribuuteille nimi, laji ja syntymavuosi tässä järjestyksessä.
 
@@ -150,6 +162,8 @@ Musti
 koira
 2017
 ```
+
+[Vastaus](osa01-01_hymio/src)
 ## Vanhempi kirja
 Tee funktio vanhempi_kirja(kirja1: Kirja, kirja2: Kirja), joka saa parametriksi kaksi Kirja-oliota. Funktio kertoo, kumpi kirjoista on vanhempi.
 
@@ -166,6 +180,8 @@ vanhempi_kirja(python, norma)
 Huipulta huipulle on vanhempi, se kirjoitettiin 2010
 Fluent Python ja Norma kirjoitettiin 2015
 ```
+
+[Vastaus](osa01-01_hymio/src)
 ## Genren kirjat
 Tee funktio genren_kirjat(kirjat: list, genre: str), joka saa parametriksi listan Kirja-olioita sekä genren kertovan merkkijonon.
 
@@ -188,6 +204,8 @@ rikoskirjoja ovat
 Sofi Oksanen: Norma
 Jo Nesbø: Lumiukko
 ```
+
+[Vastaus](osa01-01_hymio/src)
 ## Vähenevä laskuri
 Tässä tehtävässä on useampi osa. Jokainen osa vastaa yhtä tehtäväpistettä.
 
@@ -267,6 +285,8 @@ laskuri.tulosta_arvo()
 arvo: 51
 arvo: 55
 ```
+
+[Vastaus](osa01-01_hymio/src)
 ## Etu- ja sukunimi
 Kirjoita luokka Henkilo, jolla on ainoastaan yksi attribuutti nimi, joka asetetaan konstruktorissa.
 
@@ -293,6 +313,8 @@ Python
 Pauli
 Pythonen
 ```
+
+[Vastaus](osa01-01_hymio/src)
 ## Lukutilasto
 Tässä tehtävässä toteutetaan olio-ohjelmointia hyödyntäen samantapainen käyttäjän syöttämiä lukuja käsittelevä ohjelma kuin Ohjelmoinnin perusteiden osan 2 lopussa.
 ### Osa 1: Lukujen määrä
@@ -384,6 +406,8 @@ Keskiarvo: 3.25
 Parillisten summa: 8
 Parittomien summa: 5
 ```
+
+[Vastaus](osa01-01_hymio/src)
 ## Sekuntikello
 Tehtäväpohjassa on mukana luokan Sekuntikello runko:
 ```
@@ -416,6 +440,8 @@ for i in range(3600):
 Metodi tick vie siis kelloa sekunnin eteenpäin, ja sekä sekuntien että minuuttien arvo on suuruudeltaan korkeintaan 59. Lisäksi oliossa tulee olla metodi __str__, joka näyttää kellonajan yllä olevassa muodossa.
 
 Vihje: metodin tick testailua voi helpottaa asettamalla tilapäisesti konstruktorissa sekunneille ja minuuteille valmiiksi jonkin suuremman arvon kuin 0.
+
+[Vastaus](osa01-01_hymio/src)
 ## Kello
 Toteuta edellistä tehtävää laajentava luokka Kello, joka toimii seuraavaan tapaan:
 ```
@@ -448,6 +474,8 @@ print(kello)
 12:05:00
 ```
 Konstruktori siis antaa kellon tunneille, minuuteille ja sekunneille alkuarvot. Metodi tick vie kelloa sekunnin eteenpäin ja metodilla aseta voi asettaa kellon tunneille ja minuuteille uuden arvon ja nollata sekunnit.
+
+[Vastaus](osa01-01_hymio/src)
 ## Maksukortti
 Helsingin Yliopiston opiskelijaruokaloissa eli Unicafeissa opiskelijat maksavat lounaansa käyttäen maksukorttia.
 
@@ -576,6 +604,8 @@ Matti: Kortilla on rahaa 22.8 euroa
 Pekka: Kortilla on rahaa 30.2 euroa
 Matti: Kortilla on rahaa 72.8 euroa
 ```
+
+[Vastaus](osa01-01_hymio/src)
 ## Sarja
 ### Osa 1: Luokka Sarja
 Tee luokka Sarja, joka toimii seuraavasti
@@ -648,3 +678,5 @@ South Park
 Friends
 ```
 Huomaa, että yllä oleva koodi ja testit olettavat, että luokassa on attribuutti nimi. Jos olet käyttänyt muuta nimeä, sinun kannattaa vaihtaa se nyt.
+
+[Vastaus](osa01-01_hymio/src)
