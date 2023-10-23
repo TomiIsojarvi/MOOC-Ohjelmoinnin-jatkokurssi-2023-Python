@@ -384,6 +384,265 @@ Parillisten summa: 8
 Parittomien summa: 5
 ```
 ## Sekuntikello
+Tehtäväpohjassa on mukana luokan Sekuntikello runko:
+```
+class Sekuntikello:
+    def __init__(self):
+        self.sekunnit = 0
+        self.minuutit = 0
+```
+Laajenna luokkaa siten, että se toimii seuraavasti:
+```
+kello = Sekuntikello()
+for i in range(3600):
+    print(kello)
+    kello.tick()
+```
+```
+00:00
+00:01
+00:02
+... tässä välissä monta riviä
+00:59
+01:00
+01:01
+... tässä välissä erittäin monta riviä
+59:58
+59:59
+00:00
+00:01
+```
+Metodi tick vie siis kelloa sekunnin eteenpäin, ja sekä sekuntien että minuuttien arvo on suuruudeltaan korkeintaan 59. Lisäksi oliossa tulee olla metodi __str__, joka näyttää kellonajan yllä olevassa muodossa.
+
+Vihje: metodin tick testailua voi helpottaa asettamalla tilapäisesti konstruktorissa sekunneille ja minuuteille valmiiksi jonkin suuremman arvon kuin 0.
 ## Kello
+Toteuta edellistä tehtävää laajentava luokka Kello, joka toimii seuraavaan tapaan:
+```
+kello = Kello(23, 59, 55)
+print(kello)
+kello.tick()
+print(kello)
+kello.tick()
+print(kello)
+kello.tick()
+print(kello)
+kello.tick()
+print(kello)
+kello.tick()
+print(kello)
+kello.tick()
+print(kello)
+
+kello.aseta(12, 5)
+print(kello)
+```
+```
+23:59:55
+23:59:56
+23:59:57
+23:59:58
+23:59:59
+00:00:00
+00:00:01
+12:05:00
+```
+Konstruktori siis antaa kellon tunneille, minuuteille ja sekunneille alkuarvot. Metodi tick vie kelloa sekunnin eteenpäin ja metodilla aseta voi asettaa kellon tunneille ja minuuteille uuden arvon ja nollata sekunnit.
 ## Maksukortti
+Helsingin Yliopiston opiskelijaruokaloissa eli Unicafeissa opiskelijat maksavat lounaansa käyttäen maksukorttia.
+
+Tässä tehtäväsarjassa tehdään luokka Maksukortti, jonka tarkoituksena on jäljitellä Unicafeissa tapahtuvaa maksutoimintaa.
+### Osa 1: Luokan runko
+Tee ohjelmaan uusi luokka nimeltä Maksukortti.
+
+Tee ensin luokalle konstruktori, jolle annetaan kortin alkusaldo ja joka tallentaa sen olion sisäiseen muuttujaan. Tee sitten __str__-metodi, joka palauttaa kortin saldon muodossa "Kortilla on rahaa X euroa". Rahamäärä tulee tulostaa yhden desimaalin tarkkuudella.
+
+Seuraavassa on luokan Maksukortti runko:
+```
+class Maksukortti:
+    def __init__(self, alkusaldo: float):
+        self.saldo = alkusaldo
+
+    def __str__(self):
+        pass
+```
+Käyttöesimerkki
+```
+kortti = Maksukortti(50)
+print(kortti)
+```
+Ohjelman tulisi tuottaa seuraava tulostus:
+```
+Kortilla on rahaa 50.0 euroa
+```
+### Osa 2: Kortilla maksaminen
+Täydennä Maksukortti-luokkaa seuraavilla metodeilla:
+
+- syo_edullisesti joka vähentää kortin saldoa 2.60 eurolla
+- syo_maukkaasti joka vähentää kortin saldoa 4.60 eurolla
+Seuraava pääohjelma testaa luokkaa
+```
+kortti = Maksukortti(50)
+print(kortti)
+
+kortti.syo_edullisesti()
+print(kortti)
+
+kortti.syo_maukkaasti()
+kortti.syo_edullisesti()
+print(kortti)
+```
+Ohjelman tulisi tuottaa seuraava tulostus:
+```
+Kortilla on rahaa 50.0 euroa
+Kortilla on rahaa 47.4 euroa
+Kortilla on rahaa 40.2 euroa
+```
+Huomaa, että kortin saldo ei saa mennä negatiiviseksi:
+```
+kortti = Maksukortti(4)
+print(kortti)
+
+kortti.syo_edullisesti()
+print(kortti)
+
+kortti.syo_edullisesti()
+print(kortti)
+```
+```
+Kortilla on rahaa 4.0 euroa
+Kortilla on rahaa 1.4 euroa
+Kortilla on rahaa 1.4 euroa
+```
+Eli kortin saldo ei enää vähene jos maksettaessa saldo ei ole riittävä.
+### Osa 3: Kortin lataaminen
+Lisää Maksukortti-luokkaan metodi lataa_rahaa.
+
+Metodin tarkoituksena on kasvattaa kortin saldoa parametrina annetulla rahamäärällä.
+```
+kortti = Maksukortti(10)
+print(kortti)
+kortti.lataa_rahaa(15)
+print(kortti)
+kortti.lataa_rahaa(10)
+print(kortti)
+kortti.lataa_rahaa(200)
+print(kortti)
+```
+```
+Kortilla on rahaa 10.0 euroa
+Kortilla on rahaa 25.0 euroa
+Kortilla on rahaa 35.0 euroa
+Kortilla on rahaa 235.0 euroa
+```
+Jos kortille yritetään ladata negatiivinen summa, tulee metodin tuottaa poikkeus ValueError:
+```
+kortti = Maksukortti(10)
+kortti.lataa_rahaa(-10)
+```
+```
+File "testi.py", line 3, in maksukortti
+ValueError: Kortille ei saa ladata negatiivista summaa
+```
+Huomaa että metodin tulee tuottaa poikkeus, katso osan 6 materiaalista miten poikkeus tuotetaan. Metodi ei missään tilanteessa itse tulosta mitään!
+### Osa 4: Monta korttia
+Tee pääohjelma, joka sisältää seuraavan tapahtumasarjan:
+
+- Luo Pekan kortti. Kortin alkusaldo on 20 euroa
+- Luo Matin kortti. Kortin alkusaldo on 30 euroa
+- Pekka syö maukkaasti
+- Matti syö edullisesti
+- Korttien arvot tulostetaan (molemmat omalle rivilleen, rivin alkuun kortin omistajan nimi)
+- Pekka lataa rahaa 20 euroa
+- Matti syö maukkaasti
+- Korttien arvot tulostetaan (molemmat omalle rivilleen, rivin alkuun kortin omistajan nimi)
+- Pekka syö edullisesti
+- Pekka syö edullisesti
+- Matti lataa rahaa 50 euroa
+- Korttien arvot tulostetaan (molemmat omalle rivilleen, rivin alkuun kortin omistajan nimi)
+Pääohjelman runko
+```
+pekan_kortti = Maksukortti(20)
+matin_kortti = Maksukortti(30)
+# tee koodi tänne
+```
+Tulostuksen tulee olla seuraava
+```
+Pekka: Kortilla on rahaa 15.4 euroa
+Matti: Kortilla on rahaa 27.4 euroa
+Pekka: Kortilla on rahaa 35.4 euroa
+Matti: Kortilla on rahaa 22.8 euroa
+Pekka: Kortilla on rahaa 30.2 euroa
+Matti: Kortilla on rahaa 72.8 euroa
+```
 ## Sarja
+### Osa 1: Luokka Sarja
+Tee luokka Sarja, joka toimii seuraavasti
+```
+dexter = Sarja("Dexter", 8, ["Crime", "Drama", "Mystery", "Thriller"])
+print(dexter)
+```
+```
+Dexter (8 esityskautta)
+genret: Crime, Drama, Mystery, Thriller
+ei arvosteluja
+```
+Konstruktorissa siis asetetaan sarjan nimi, sen esityskausien lukumäärä sekä lista, joka kertoo mitä genrejä sarja edustaa.
+
+Vihje: merkkijonotaulukko saadaan muutettua haluttuja välimerkkejä sisältäväksi merkkijonoksi metodin join avulla seuraavasti:
+```
+lista = ["Crime", "Drama", "Mystery", "Thriller"]
+merkkijono = ", ".join(lista)
+print(merkkijono)
+```
+```
+Crime, Drama, Mystery, Thriller
+```
+### Osa 2: Arvostelujen lisääminen
+Tee luokalle metodi arvostele(arvosana: int), jonka avulla sarjalle voi lisätä arvosanan, joka on kokonaisluku väliltä 0–5. Myös metodia __str__ tulee muuttaa niin, että se antaa arvostelujen määrän ja keskiarvon pyöristettynä yhden desimaalin tarkkuudelle (jos arvosteluja on annettu).
+```
+dexter = Sarja("Dexter", 8, ["Crime", "Drama", "Mystery", "Thriller"])
+dexter.arvostele(4)
+dexter.arvostele(5)
+dexter.arvostele(5)
+dexter.arvostele(3)
+dexter.arvostele(0)
+print(dexter)
+```
+```
+Dexter (8 esityskautta)
+genret: Crime, Drama, Mystery, Thriller
+arvosteluja 5, keskiarvo 3.4 pistettä
+```
+### Osa 3: Sarjojen haku
+Tee kaksi funktiota arvosana_vahintaan(arvosana: float, sarjat: list) ja sisaltaa_genren(genre: str, sarjat: list), joiden avulla on mahdollista etsiä listalla olevia sarjoja.
+
+Metodit toimivat seuraavasti:
+```
+s1 = Sarja("Dexter", 8, ["Crime", "Drama", "Mystery", "Thriller"])
+s1.arvostele(5)
+
+s2 = Sarja("South Park", 24, ["Animation", "Comedy"])
+s2.arvostele(3)
+
+s3 = Sarja("Friends", 10, ["Romance", "Comedy"])
+s3.arvostele(2)
+
+sarjat = [s1, s2, s3]
+
+print("arvosana vähintään 4.5:")
+for sarja in arvosana_vahintaan(4.5, sarjat):
+    print(sarja.nimi)
+
+print("genre Comedy:")
+for sarja in sisaltaa_genren("Comedy", sarjat):
+    print(sarja.nimi)
+```
+```
+arvosana vähintään 4.5:
+Dexter
+
+genre Comedy:
+South Park
+Friends
+```
+Huomaa, että yllä oleva koodi ja testit olettavat, että luokassa on attribuutti nimi. Jos olet käyttänyt muuta nimeä, sinun kannattaa vaihtaa se nyt.
