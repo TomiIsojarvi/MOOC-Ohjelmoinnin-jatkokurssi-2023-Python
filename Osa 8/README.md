@@ -189,8 +189,200 @@ Sofi Oksanen: Norma
 Jo Nesbø: Lumiukko
 ```
 ## Vähenevä laskuri
+Tässä tehtävässä on useampi osa. Jokainen osa vastaa yhtä tehtäväpistettä.
+
+Tehtäväpohjan mukana tulee osittain valmiiksi toteutettu luokka VahenevaLaskuri:
+```
+class VahenevaLaskuri:
+    def __init__(self, arvo_alussa: int):
+        self.arvo = arvo_alussa
+
+    def tulosta_arvo(self):
+        print("arvo:", self.arvo)
+
+    def vahenna(self):
+        pass
+
+    # ja tänne muut metodit
+```
+Luokkaa käytetään seuraavasti
+```
+laskuri = VahenevaLaskuri(10)
+laskuri.tulosta_arvo()
+laskuri.vahenna()
+laskuri.tulosta_arvo()
+laskuri.vahenna()
+laskuri.tulosta_arvo()
+```
+```
+arvo: 10
+arvo: 9
+arvo: 8
+```
+### Osa 1: Laskurin vähentäminen
+Täydennä luokan runkoon metodin vahenna toteutus sellaiseksi, että se vähentää kutsuttavan olion oliomuuttujan arvoa yhdellä. Kun olet toteuttanut metodin vahenna, äskeisen pääohjelman tulee toimia esimerkkitulosteen mukaan.
+### Osa 2: Laskurin arvo ei saa olla negatiivinen
+Täydennä metodin vahenna toteutus sellaiseksi, ettei laskurin arvo mene koskaan negatiiviseksi: jos laskurin arvo on jo 0, sitä ei enää vähennetä.
+```
+laskuri = VahenevaLaskuri(2)
+laskuri.tulosta_arvo()
+laskuri.vahenna()
+laskuri.tulosta_arvo()
+laskuri.vahenna()
+laskuri.tulosta_arvo()
+laskuri.vahenna()
+laskuri.tulosta_arvo()
+```
+```
+arvo: 2
+arvo: 1
+arvo: 0
+arvo: 0
+```
+### Osa 3: Laskurin arvon nollaus
+Tee laskurille metodi nollaa, joka nollaa laskurin arvon:
+```
+laskuri = VahenevaLaskuri(100)
+laskuri.tulosta_arvo()
+laskuri.nollaa()
+laskuri.tulosta_arvo()
+```
+```
+arvo: 100
+arvo: 0
+```
+### Osa 4: Alkuperäisen arvon palautus
+Tee laskurille metodi palauta_alkuperainen_arvo() joka palauttaa laskurille sen alkuperäisen arvon:
+```
+laskuri = VahenevaLaskuri(55)
+laskuri.vahenna()
+laskuri.vahenna()
+laskuri.vahenna()
+laskuri.vahenna()
+laskuri.tulosta_arvo()
+laskuri.palauta_alkuperainen_arvo()
+laskuri.tulosta_arvo()
+```
+```
+arvo: 51
+arvo: 55
+```
 ## Etu- ja sukunimi
+Kirjoita luokka Henkilo, jolla on ainoastaan yksi attribuutti nimi, joka asetetaan konstruktorissa.
+
+Lisäksi luokalle tule kirjoitaa kaksi metodia:
+
+Metodi anna_etunimi palauttaa henkilön etunimen ja metodi anna_sukunimi vastaavasti henkilön sukunimen.
+
+Voit olettaa metodeissa, että konstruktroissa annetussa nimessä on etu- ja sukunimi välilyönnillä erotettuna eikä muita nimiä.
+
+Esimerkki luokan käytöstä:
+```
+if __name__ == "__main__":
+    pekka = Henkilo("Pekka Python")
+    print(pekka.anna_etunimi())
+    print(pekka.anna_sukunimi())
+
+    pauli = Henkilo("Pauli Pythonen")
+    print(pauli.anna_etunimi())
+    print(pauli.anna_sukunimi())
+```
+```
+Pekka
+Python
+Pauli
+Pythonen
+```
 ## Lukutilasto
+Tässä tehtävässä toteutetaan olio-ohjelmointia hyödyntäen samantapainen käyttäjän syöttämiä lukuja käsittelevä ohjelma kuin Ohjelmoinnin perusteiden osan 2 lopussa.
+### Osa 1: Lukujen määrä
+Tee luokka Lukutilasto, joka tuntee seuraavat toiminnot:
+
+- metodi lisaa_luku lisää uuden luvun tilastoon
+- metodi lukujen_maara kertoo lisättyjen lukujen määrän
+Luokan ei tarvitse tallentaa mihinkään lisättyjä lukuja vaan riittää, että se muistaa niiden määrän. Metodin lisaa_luku ei tässä vaiheessa tarvitse edes ottaa huomioon, mikä luku lisätään tilastoon, koska ainoa tallennettava asia on lukujen määrä.
+
+Luokan runko on seuraava:
+```
+class  Lukutilasto:
+    def __init__(self):
+        self.lukuja = 0
+
+    def lisaa_luku(self, luku:int):
+        pass
+
+    def lukujen_maara(self):
+        pass
+```
+```
+tilasto = Lukutilasto()
+tilasto.lisaa_luku(3)
+tilasto.lisaa_luku(5)
+tilasto.lisaa_luku(1)
+tilasto.lisaa_luku(2)
+print("Lukujen määrä:", tilasto.lukujen_maara())
+```
+```
+Lukujen määrä: 4
+```
+### Osa 2: Summa ja keskiarvo
+Laajenna luokkaa seuraavilla toiminnoilla:
+
+- metodi summa kertoo lisättyjen lukujen summan (tyhjän lukutilaston summa on 0)
+- metodi keskiarvo kertoo lisättyjen lukujen keskiarvon (tyhjän lukutilaston keskiarvo on 0)
+```
+tilasto = Lukutilasto()
+tilasto.lisaa_luku(3)
+tilasto.lisaa_luku(5)
+tilasto.lisaa_luku(1)
+tilasto.lisaa_luku(2)
+print("Lukujen määrä:", tilasto.lukujen_maara())
+print("Summa:", tilasto.summa())
+print("Keskiarvo:", tilasto.keskiarvo())
+```
+```
+Määrä: 4
+Summa: 11
+Keskiarvo: 2.75
+```
+### Osa 3: Summa käyttäjältä
+Tee ohjelma, joka kysyy lukuja käyttäjältä, kunnes käyttäjä antaa luvun -1. Sitten ohjelma ilmoittaa lukujen summan.
+
+Ohjelmassa tulee käyttää Lukutilasto-oliota summan laskemiseen.
+
+HUOM: Älä muuta tässä osassa luokkaa Lukutilasto, vaan toteuta sitä hyödyntäen summan laskemiseen käytetty ohjelma.
+
+HUOM2: Älä kirjoita pääohjelmaa if __name__ == "__main__"-lohkon sisään, jotta testit toimivat!
+```
+Anna lukuja:
+4
+2
+5
+2
+-1
+Summa: 13
+Keskiarvo: 3.25
+```
+### Osa 4:Monta summaa
+Muuta edellistä ohjelmaa niin, että ohjelma laskee myös parillisten ja parittomien lukujen summaa.
+
+HUOM: Älä edelleenkään muuta luokkaa Lukutilasto, vaan määrittele ohjelmassa kolme Lukutilasto-oliota. Laske ensimmäisen avulla kaikkien lukujen summa ja keskiarvo, toisen avulla parillisten lukujen summa ja kolmannen avulla parittomien lukujen summa.
+
+HUOM2: Älä kirjoita pääohjelmaa if __name__ == "__main__"-lohkon sisään, jotta testit toimivat!
+
+Ohjelman tulee toimia seuraavasti:
+```
+Anna lukuja:
+4
+2
+5
+2
+-1
+Summa: 13
+Keskiarvo: 3.25
+Parillisten summa: 8
+Parittomien summa: 5
+```
 ## Sekuntikello
 ## Kello
 ## Maksukortti
