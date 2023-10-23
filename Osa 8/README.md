@@ -300,6 +300,7 @@ Tee luokka Lukutilasto, joka tuntee seuraavat toiminnot:
 
 - metodi lisaa_luku lisää uuden luvun tilastoon
 - metodi lukujen_maara kertoo lisättyjen lukujen määrän
+
 Luokan ei tarvitse tallentaa mihinkään lisättyjä lukuja vaan riittää, että se muistaa niiden määrän. Metodin lisaa_luku ei tässä vaiheessa tarvitse edes ottaa huomioon, mikä luku lisätään tilastoon, koska ainoa tallennettava asia on lukujen määrä.
 
 Luokan runko on seuraava:
