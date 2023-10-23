@@ -4,10 +4,10 @@ Tee funktio pienin_keskiarvo(henkilo1: dict, henkilo2: dict, henkilo3: dict), jo
 
 Jokaisessa sanakirjaoliossa on alkiot, joihin viittaavat nämä avaimet:
 
-"nimi": kilpailijan nimi
-"tulos1": kilpailijan ensimmäinen tulos (kokonaisluku väliltä 1...10)
-"tulos2": kilpailijan toinen tulos (kuten yllä)
-"tulos3": kilpailijan kolmas tulos (kuten yllä)
+- "nimi": kilpailijan nimi
+- "tulos1": kilpailijan ensimmäinen tulos (kokonaisluku väliltä 1...10)
+- "tulos2": kilpailijan toinen tulos (kuten yllä)
+- "tulos3": kilpailijan kolmas tulos (kuten yllä)
 Funktio laskee kaikkien kilpailijoiden tulosten keskiarvot ja palauttaa sen kilpailijan, jonka keskiarvo on pienin. Funktion palautusarvona on sanakirjaolio.
 
 Voit olettaa, että vain yhdellä henkilöllä on pienin keskiarvo.
