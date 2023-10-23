@@ -102,10 +102,92 @@ if __name__ == "__main__":
 16
 ```
 ## Kirja
+Tee luokka Kirja, jolla on attribuutteina muuttujat nimi, kirjoittaja, genre ja kirjoitusvuosi sekä konstruktori, joka alustaa muuttujat.
+
+Luokkaa käytetään seuraavasti:
+```
+python = Kirja("Fluent Python", "Luciano Ramalho", "ohjelmointi", 2015)
+everest = Kirja("Huipulta huipulle", "Carina Räihä", "elämänkerta", 2010)
+
+print(f"{python.kirjoittaja}: {python.nimi} ({python.kirjoitusvuosi})")
+print(f"Kirjan {everest.nimi} genre on {everest.genre}")
+```
+```
+Luciano Ramalho: Fluent Python (2015)
+Kirjan Huipulta huipulle genre on elämänkerta
+```
 ## Kirjoita luokat
+Kirjoita alla pyydetyt luokat. Jokaisen luokan alle on kuvattu attribuuttien nimet ja tyypit.
+
+Kirjoita jokaiselle luokalle myös konstruktori, jossa attribuutit annetaan siinä järjestyksessä kuin ne on kuvauksessa annettu.
+
+1. Luokka Muistilista
+- attribuutti otsikko (merkkijono)
+- attribuutti merkinnat (lista)
+2. Luokka Asiakas
+- attribuutti tunniste (merkkijono)
+- attribuutti saldo (desimaaliluku)
+- attribuutti alennusprosentti (kokonaisluku)
+3. Luokka Kaapeli
+- attribuutti malli (merkkijono)
+- attribuutti pituus (desimaaliluku)
+- attribuutti maksiminopeus (kokonaisluku)
+- attribuutti kaksisuuntainen (totuusarvo)
 ## Muodosta lemmikki
+Määrittele luokka Lemmikki. Luokalla on konstruktori, jossa annetaan arvot attribuuteille nimi, laji ja syntymavuosi tässä järjestyksessä.
+
+Kirjoita sitten luokan ulkopuolelle funktio uusi_lemmikki(nimi: str, laji: str, syntymavuosi: int), joka luo ja palauttaa uuden Lemmikki-tyyppisen (eli Lemmikki-luokkaa vastaavan) olion.
+
+Esimerkki funktion kutsumisesta:
+```
+musti = uusi_lemmikki("Musti", "koira", 2017)
+print(musti.nimi)
+print(musti.laji)
+print(musti.syntymavuosi)
+```
+```
+Musti
+koira
+2017
+```
 ## Vanhempi kirja
+Tee funktio vanhempi_kirja(kirja1: Kirja, kirja2: Kirja), joka saa parametriksi kaksi Kirja-oliota. Funktio kertoo, kumpi kirjoista on vanhempi.
+
+Funktiota käytetään seuraavasti:
+```
+python = Kirja("Fluent Python", "Luciano Ramalho", "ohjelmointi", 2015)
+everest = Kirja("Huipulta huipulle", "Carina Räihä", "elämänkerta", 2010)
+norma = Kirja("Norma", "Sofi Oksanen", "rikos", 2015)
+
+vanhempi_kirja(python, everest)
+vanhempi_kirja(python, norma)
+```
+```
+Huipulta huipulle on vanhempi, se kirjoitettiin 2010
+Fluent Python ja Norma kirjoitettiin 2015
+```
 ## Genren kirjat
+Tee funktio genren_kirjat(kirjat: list, genre: str), joka saa parametriksi listan Kirja-olioita sekä genren kertovan merkkijonon.
+
+Funktio palauttaa uuden listan, jolle se laittaa parametrina olevista kirjoista ne, joilla on haluttu genre.
+
+Funktiota käytetään seuraavasti:
+```
+python = Kirja("Fluent Python", "Luciano Ramalho", "ohjelmointi", 2015)
+everest = Kirja("Huipulta huipulle", "Carina Räihä", "elämänkerta", 2010)
+norma = Kirja("Norma", "Sofi Oksanen", "rikos", 2015)
+
+kirjat = [python, everest, norma, Kirja("Lumiukko", "Jo Nesbø", "rikos", 2007)]
+
+print("rikoskirjoja ovat")
+for kirja in genren_kirjat(kirjat, "rikos"):
+    print(f"{kirja.kirjoittaja}: {kirja.nimi}")
+```
+```
+rikoskirjoja ovat
+Sofi Oksanen: Norma
+Jo Nesbø: Lumiukko
+```
 ## Vähenevä laskuri
 ## Etu- ja sukunimi
 ## Lukutilasto
