@@ -24,6 +24,21 @@ print(pienin_keskiarvo(henkilo1, henkilo2, henkilo3))
 {'nimi': 'Veijo', 'tulos1': 3, 'tulos2': 1, 'tulos3': 1}
 ```
 ## Rivien summat
+Listan alkioiden arvot ovat viittauksia olioihin. Tämä pätee myös silloin, kun mallinnetaan matriisia: jokainen päälistan alkion arvo on viittaus toiseen listaan (jonka alkiot taas ovat viittauksia arvoihin).
+
+Tee funktio rivien_summat(matriisi: list), joka saa parametrikseen kokonaislukuja sisältävän matriisin.
+
+Funktio lisää jokaiselle matriisin riville uuden alkion, jonka arvo on rivin alkioiden summa. Funktio ei palauta mitään, vaan muokkaa parametrinaan saamaansa matriisia.
+
+Esimerkki funktion kutsumisesta:
+```
+matriisi = [[1, 2], [3, 4]]
+rivien_summat(matriisi)
+print(matriisi)
+```
+```
+[[1, 2, 3], [3, 4, 7]]
+```
 ## Vuodet listaan
 ## Kauppalista
 ## Kirja
