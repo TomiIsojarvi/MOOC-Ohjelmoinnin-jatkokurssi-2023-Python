@@ -560,6 +560,7 @@ Tee pääohjelma, joka sisältää seuraavan tapahtumasarjan:
 - Pekka syö edullisesti
 - Matti lataa rahaa 50 euroa
 - Korttien arvot tulostetaan (molemmat omalle rivilleen, rivin alkuun kortin omistajan nimi)
+
 Pääohjelman runko
 ```
 pekan_kortti = Maksukortti(20)
